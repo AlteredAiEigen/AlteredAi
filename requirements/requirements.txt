@@ -1,5 +1,7 @@
+git+https://github.com/unifyai/ivy.git
 torchvision
 torch
 numpy
 pandas
 boto3
+tensorflow

@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="AlteredAi",
-    version='0.0.1',
+    version='0.0.2',
     author='Chanpreet',
     author_email='alteredai@alteredai.care',
     description='unified ML package',

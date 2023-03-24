@@ -1,4 +1,5 @@
-from .DataLoader import DataLoader
+from ..DataLoader import DataLoader
+import tensorflow as tf
 class tensorflow(DataLoader):
     def __init__(self):
         print("AlteredAiTensorflow Loaded Successfully")
