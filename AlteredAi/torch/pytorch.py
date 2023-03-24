@@ -1,9 +1,9 @@
-from .DataLoader import DataLoader
+from AlteredAi.core.DataLoader import DataLoader
 from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
-from .DataTransformations import DataTransformations
+from AlteredAi.core.DataTransformations import DataTransformations
 
-class pytorch (DataLoader):
+class torch (DataLoader):
     
     def __init__(self,access_key_id,secret_access_key,dataKey,resize=64,batchSize=5):
         super().__init__(access_key_id,secret_access_key,dataKey)
@@ -24,4 +24,4 @@ class pytorch (DataLoader):
     def getTransformationInfo(self):
         pass
 
-obj=pytorch(access_key_id='AKIA6ARV4U6MKDU4X24E',secret_access_key='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',dataKey="TbNormalNumpy")
+#obj=pytorch(access_key_id='AKIA6ARV4U6MKDU4X24E',secret_access_key='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',dataKey="TbNormalNumpy")
