@@ -5,7 +5,34 @@
 - Preprocessing can be done directly on these provided Tensors with AlteredAi or Torch or Tensorflow.
 - ML code written with  AlteredAi can be converted to any framework. We are building on top of ivy.
 
-## install
+## Install
 ``` pip install git+https://github.com/AlteredAiEigen/AlteredAi.git ```
 
-- Tutorials will be added soon.
+# Poc 
+- This is proof of concept where essentially same code can be run with multiple backend.
+
+- Install following  
+``` 
+pip install git+https://github.com/AlteredAiEigen/AlteredAi.git
+pip install git+https://github.com/unifyai/ivy.git 
+
+```
+- poc is calling the same code just with different backends each time.
+- whichever backend you want your code to run , please install that framework first.
+
+```
+
+from AlteredAi.Ivy.function import poc
+
+poc("torch")
+
+poc("tensorflow")
+
+poc("jax")
+
+
+
+```
+
+
+
