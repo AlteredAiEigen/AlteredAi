@@ -1,7 +1,7 @@
 from AlteredAi.core.AlteredAiDataLoader import AlteredAiDataLoader
 import tensorflow as tf
 
-class tensorflow(AlteredAiDataLoader):
+class TensorflowDataLoader(AlteredAiDataLoader):
     def __init__(self):
         print("AlteredAiTensorflow Loaded Successfully")
 
