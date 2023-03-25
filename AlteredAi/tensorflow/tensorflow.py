@@ -1,16 +1,9 @@
-import sys
-import os
+from AlteredAi.core.AlteredAiDataLoader import AlteredAiDataLoader
+import tensorflow as tf
 
-# Add the parent directory to the Python path
-
-from AlteredAi.core.DataLoader import DataLoader
-#import tensorflow as tf
-
-class tensorflow(DataLoader):
+class tensorflow(AlteredAiDataLoader):
     def __init__(self):
         print("AlteredAiTensorflow Loaded Successfully")
 
     def funTensorflow(self):
         print("This is function from Tensorflow Class")
-
-print("test") 
