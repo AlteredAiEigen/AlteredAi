@@ -20,7 +20,7 @@ pip install git+https://github.com/unifyai/ivy.git
 - poc is calling the same code just with different backends each time.
 - whichever backend you want your code to run , please install that framework first.
 
-```
+```python
 
 from AlteredAi.Ivy.function import poc
 
