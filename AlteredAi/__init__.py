@@ -18,15 +18,16 @@ def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None):
     if dtype=='tensorflow.tensor':
         #data_object = TensorflowDataLoader(access_key_id=access_key_id, secret_access_key=secret_access_key, dataKey=dataKey)
         #return data_object.getPytorchDataLoader()
-        print("TensorflowDataLoader is not implemented yet")
-        return None
+        raise Exception("TensorflowDataLoader is not implemented yet")
+
+
     raise Exception("invalid dtype got ",dtype," but valid options are tensorflow.tensor or torch.tensor")
 
 def getDataAsNumpyArrayApi(access_key_id,secret_access_key,dataKey):
     data_=AlteredAiDataLoader(access_key_id,secret_access_key,dataKey)
     return data_.getDataAsNumpyArrays()
 
-def getDatasAsIvyArrays(access_key_id,secret_access_key,dataKey):
+def getDataAsIvyArrayApi(access_key_id,secret_access_key,dataKey):
     data_ = AlteredAiDataLoader(access_key_id, secret_access_key, dataKey)
     data,targets=data_.getDataAsNumpyArrays()
     return ivy.array(data),ivy.array(targets)
