@@ -1,8 +1,16 @@
-# AlteredAi
+![lockup white backgroud color](https://user-images.githubusercontent.com/128656547/227750593-f065d842-e839-4690-8bcb-8f1940ddace1.png)
+
+
+
+
+#                                                               
+
+
 
 - we provide apis to get data directly in form of numpy array and Tensors (pytorch & tensorflow), which can be feeded directly to Algorithms for training.
-- No need to store  load data from folders / files for pre-processing.
-- Preprocessing can be done directly on these provided Tensors with AlteredAi or Torch or Tensorflow.
+- No need to store / load data from folders / files for pre-processing.
+- Basic essential preprocessing is already done.
+- More preprocessing can also be done directly on these provided Tensors with AlteredAi or Torch or Tensorflow.
 - ML code written with  AlteredAi can be converted to any framework. We are building on top of ivy.
 
 ## Install
