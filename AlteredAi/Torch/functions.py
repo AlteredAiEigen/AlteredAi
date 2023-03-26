@@ -27,6 +27,9 @@ class TorchDataLoader(AlteredAiDataLoader):
     def getTransformationInfo(self):
         pass
 
+    def getDataAsNumpyArrays(self):
+        return self.data,self.targets
 
-obj=TorchDataLoader(access_key_id='AKIA6ARV4U6MKDU4X24E',secret_access_key='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',dataKey="TbNormalNumpy")
+
+#obj=TorchDataLoader(access_key_id='AKIA6ARV4U6MKDU4X24E',secret_access_key='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',dataKey="TbNormalNumpy")
 

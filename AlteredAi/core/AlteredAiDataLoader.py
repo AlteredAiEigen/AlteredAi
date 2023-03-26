@@ -4,7 +4,6 @@ import numpy as np
 from .utilities import LoadFile
 
 class AlteredAiDataLoader:
-    
     def __init__(self,access_key_id,secret_access_key,dataKey):
         dataKey=dataKey+".npz"
         bucket='alterdai-ai-chest-xray'
@@ -16,7 +15,7 @@ class AlteredAiDataLoader:
         print("--------------------------Data Processing Started-------------------------------")
         dataObject = botoObject.Object(bucket_name=bucket, key=dataKey)
         data = LoadFile(dataObject)
-        
+
         # load dict of arrays
 
         dict_data = load(data)
@@ -31,6 +30,6 @@ class AlteredAiDataLoader:
         print("W = Width")
         print("C = Channel")
         self.targets = list(np.random.randint(2, size=(len(self.data))))
-        
+
     def getDataAsNumpyArrays(self):
         return self.data,self.targets

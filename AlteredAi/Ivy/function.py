@@ -34,3 +34,4 @@ class poc():
 
            print('Finished training with ',backend_choice,' Now you can change the backend_choice and  try again')
            print('supported backend types are : torch , tensorflow and jax')
+#poc('jax')
