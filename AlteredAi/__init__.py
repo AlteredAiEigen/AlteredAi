@@ -1,6 +1,6 @@
 from AlteredAi.Torch.functions import TorchDataLoader
 from AlteredAi.core.AlteredAiDataLoader import AlteredAiDataLoader
-
+import ivy
 def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None):
 
     '''
@@ -25,6 +25,11 @@ def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None):
 def getDataAsNumpyArrayApi(access_key_id,secret_access_key,dataKey):
     data_=AlteredAiDataLoader(access_key_id,secret_access_key,dataKey)
     return data_.getDataAsNumpyArrays()
+
+def getDatasAsIvyArrays(access_key_id,secret_access_key,dataKey):
+    data_ = AlteredAiDataLoader(access_key_id, secret_access_key, dataKey)
+    data,targets=data_.getDataAsNumpyArrays()
+    return ivy.array(data),ivy.array(targets)
 
 
 
