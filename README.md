@@ -10,7 +10,7 @@
 - we provide apis to get data directly in form of numpy array and Tensors (pytorch & tensorflow), which can be feeded directly to Algorithms for training.
 - No need to store / load data from folders / files for pre-processing.
 - Basic essential preprocessing is already done.
-- More preprocessing can also be done directly on these provided Tensors with AlteredAi or Torch or Tensorflow.
+- More preprocessing can also be done directly on these provided Tensors with AlteredAi or Torch or Tensorflow or Ivy.
 - ML code written with  AlteredAi can be converted to any framework. We are building on top of ivy.
 
 ## Install
@@ -18,15 +18,19 @@
 
 # Poc 
 - This is proof of concept where essentially same code can be run with multiple backend.
+- You can see the code for poc by navigating to AlteredAi/Ivy/function.
 
 - Install following  
+
 ``` 
 pip install git+https://github.com/AlteredAiEigen/AlteredAi.git
 pip install git+https://github.com/unifyai/ivy.git 
+pip install boto3
 
 ```
-- poc is calling the same code just with different backends each time.
-- whichever backend you want your code to run , please install that framework first.
+- poc is calling the same code just with different backend each time.
+- whichever backend you want your code to run on , please install that framework first.
+
 
 ```python
 
