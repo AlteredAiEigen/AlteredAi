@@ -15,8 +15,12 @@ def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None,resize=64,b
 
     if dtype=='torch.tensor':
         data_object = TorchDataLoader(access_key_id=access_key_id, secret_access_key=secret_access_key, dataKey=dataKey,resize=resize,batchSize=batchSize)
-        print("PYTHON DATALOADER WITH FOLLOWING SHAPE : ")
-        print(" original data converted to" , batchSize, " ,",resize  ,",",resize)
+        print("---------------------------------------------------------------------")
+        print("                                                                     ")
+        print("PYTORCH DATALOADER LOADED ")
+        print("EACH BATCH SHAPE (",batchSize,",",resize,",",resize,")")
+        print("                                                                     ")
+        print("---------------------------------------------------------------------")
         return data_object.getPytorchDataLoader()
 
     if dtype=='tensorflow.tensor':
