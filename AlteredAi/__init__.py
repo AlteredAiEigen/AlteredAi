@@ -1,18 +1,20 @@
 from AlteredAi.Torch.functions import TorchDataLoader
 from AlteredAi.core.AlteredAiDataLoader import AlteredAiDataLoader
 import ivy
-def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None):
+def dataloaderApi(access_key_id,secret_access_key,dataKey,dtype=None,resize=64,batchSize=5):
 
     '''
-    :param access_key_id:
-    :param secret_access_key:
-    :param dataKey:
-    :param dtype: tensorflow.tensor , torch.tensor
+    :access_key_id:
+    :secret_access_key:
+    :dataKey:
+    :dtype: tensorflow.tensor , torch.tensor
+    :resize:64 (default)
+    :batchSize:5 (default)
     :return: dataLoader torch or tensorflow
     '''
 
     if dtype=='torch.tensor':
-        data_object = TorchDataLoader(access_key_id=access_key_id, secret_access_key=secret_access_key, dataKey=dataKey)
+        data_object = TorchDataLoader(access_key_id=access_key_id, secret_access_key=secret_access_key, dataKey=dataKey,resize=64,batchSize=5)
         return data_object.getPytorchDataLoader()
 
     if dtype=='tensorflow.tensor':
