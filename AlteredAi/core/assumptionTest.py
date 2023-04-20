@@ -14,7 +14,7 @@ def check_linear_regression_assumptions(X, y,plot=False):
     >> n = 100
     >> X = np.random.normal(0, 1, (n, 3))
     >> y = 10 + 2*X[:, 0] + 3*X[:, 1] + 4*X[:, 2] + np.random.normal(0, 1, n)
-    >>check_linear_regression_assumptions(X, y,plot=False)
+    >> check_linear_regression_assumptions(X, y,plot=False)
     '''
     # Add a constant term to the input data
     X = sm.add_constant(X)
