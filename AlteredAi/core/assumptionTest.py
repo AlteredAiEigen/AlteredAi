@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import numpy as np
 import seaborn as sb
+import scipy.stats as stats
+from statsmodels.stats.stattools import durbin_watson
 
 def check_linear_regression_assumptions(X, y,plot=False):
     '''
@@ -38,8 +40,6 @@ def check_linear_regression_assumptions(X, y,plot=False):
         plt.show()
 
     # Check the normality assumption
-
-    import scipy.stats as stats
     _, p_value = stats.normaltest(residual)
     normality = p_value > 0.05
     if normality:
@@ -68,7 +68,6 @@ def check_linear_regression_assumptions(X, y,plot=False):
         plt.show()
 
     # Check the independence assumption
-    from statsmodels.stats.stattools import durbin_watson
     d = durbin_watson(residual)
     independence = d > 1.5 and d < 2.5
     if independence:
