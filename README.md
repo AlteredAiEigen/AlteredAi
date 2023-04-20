@@ -7,7 +7,7 @@
 
 
 
-
+https://alteredai.care
 
 - we provide apis to get data directly in form of numpy array and Tensors (pytorch & tensorflow), which can be feeded directly to Algorithms for training.
 - No need to store / load data from folders / files for pre-processing.
