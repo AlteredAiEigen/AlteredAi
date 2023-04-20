@@ -1,9 +1,10 @@
-import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import numpy as np
-import seaborn as sb
 import scipy.stats as stats
 from statsmodels.stats.stattools import durbin_watson
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix,roc_curve
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def check_linear_regression_assumptions(X, y,plot=False):
     '''
@@ -17,6 +18,7 @@ def check_linear_regression_assumptions(X, y,plot=False):
     >> X = np.random.normal(0, 1, (n, 3))
     >> y = 10 + 2*X[:, 0] + 3*X[:, 1] + 4*X[:, 2] + np.random.normal(0, 1, n)
     >> check_linear_regression_assumptions(X, y,plot=False)
+
     '''
     # Add a constant term to the input data
     X = sm.add_constant(X)
@@ -47,7 +49,7 @@ def check_linear_regression_assumptions(X, y,plot=False):
     else:
         print("Normality:", '\033[31m' + '✘' + '\033[0m')
     if plot:
-        sb.displot(residual, kind='kde')
+        sns.displot(residual, kind='kde')
         fig = sm.qqplot(residual, line='r')
         plt.title("Normality Check")
         plt.show()
@@ -90,3 +92,58 @@ def check_linear_regression_assumptions(X, y,plot=False):
         vif = np.array([sm.OLS(X[:, i], X[:, :i]).fit().rsquared for i in range(1, X.shape[1])])
         print("Variance inflation factors (VIF):",vif)
 
+
+
+def evaluate_metrics(y_true, y_pred,plot=False):
+    '''
+
+    :param y_true: Truth value
+    :param y_pred: model prediction
+    :param plot: True if you want plot otherwise false
+    :return:acc,prec,rec,f1,auc
+
+    >> y_true = np.array([0, 1, 1, 0, 1, 0, 1, 0, 1, 0])
+    >> y_pred = np.array([0, 1, 0, 0, 1, 1, 1, 0, 1, 1])
+    >> acc, prec, rec, f1, auc = evaluate_metrics(y_true, y_pred,plot=True)
+
+    '''
+    acc = accuracy_score(y_true, y_pred)
+    prec = precision_score(y_true, y_pred)
+    rec = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+    auc = roc_auc_score(y_true, y_pred)
+
+    # Print the metrics
+    print("Accuracy:", acc)
+    print("Precision:", prec)
+    print("Recall:", rec)
+    print("F1 score:", f1)
+    print("ROC AUC score:", auc)
+
+    # Check if the model is overfitting or generalizing well
+    if acc > 0.95 and auc > 0.95:
+        print("The model is likely overfitting the training data.")
+    elif acc < 0.80 or auc < 0.80:
+        print("The model may not be generalizing well to new data.")
+    else:
+        print("The model is likely generalizing well to new data.")
+
+    # Plot the ROC curve
+    if plot:
+        fpr, tpr, _ = roc_curve(y_true, y_pred)
+        plt.plot(fpr, tpr)
+        plt.xlabel("False Positive Rate")
+        plt.ylabel("True Positive Rate")
+        plt.title("ROC Curve")
+        plt.show()
+
+    # Plot the confusion matrix
+    if plot:
+        cm = confusion_matrix(y_true, y_pred)
+        sns.heatmap(cm, annot=True, cmap="Blues", fmt="d")
+        plt.xlabel("Predicted Label")
+        plt.ylabel("True Label")
+        plt.title("Confusion Matrix")
+        plt.show()
+
+    return acc, prec, rec, f1, auc
